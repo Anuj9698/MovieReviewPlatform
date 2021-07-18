@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "e387273a-b1c4-4ac8-8470-faaef0a12165",
+		"name": "Apptunix Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\":\"Anuj 2\",\n    \"email\":\"anuj@gmail.com\",\n    \"password\":\"1234\",\n    \"confirmPassword\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/userAuth/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"userAuth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"anuj@gmail.com\",\n    \"password\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/userAuth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"userAuth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Movies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movieName\":\"Avengers: Endgame\",\n    \"movieImage\":\"\",\n    \"description\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/movie/addMovie",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"movie",
+						"addMovie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Review",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYzYmQyMjM3YTViMzMwNmM4ZTNlZjciLCJpYXQiOjE2MjY1ODY0MTEsImV4cCI6MTYyNzg4MjQxMSwianRpIjoiNDE5MjI4M2QtNWY2ZC00MzliLWE3NmMtZDhhNzE3YmMzODZiIn0.kZovobF1lC26_XzJqKeCuFwlQNKpTCaLl_QXai2YQss",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movieId\":\"60f346ac6a8bbf5424f63e20\",\n    \"rating\":1,\n    \"review\":\"Fabulous movie\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/userReview",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"userReview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/movie/list?skip=0&limit=10",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"movie",
+						"list"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users review on Movie",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYzYmQyMjM3YTViMzMwNmM4ZTNlZjciLCJpYXQiOjE2MjY1ODY0MTEsImV4cCI6MTYyNzg4MjQxMSwianRpIjoiNDE5MjI4M2QtNWY2ZC00MzliLWE3NmMtZDhhNzE3YmMzODZiIn0.kZovobF1lC26_XzJqKeCuFwlQNKpTCaLl_QXai2YQss",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/movie/60f346ac6a8bbf5424f63e20/getUserReview?skip=0&limit=10",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"movie",
+						"60f346ac6a8bbf5424f63e20",
+						"getUserReview"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
